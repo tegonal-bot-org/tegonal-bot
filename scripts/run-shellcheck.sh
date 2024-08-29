@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 #
-#    __                          __
-#   / /____ ___ ____  ___  ___ _/ /       This script is provided to you by https://github.com/ORG_NAME_GITHUB/PROJECT_NAME_GITHUB
-#  / __/ -_) _ `/ _ \/ _ \/ _ `/ /        Copyright YEAR ORG_NAME <ORG_EMAIL>
-#  \__/\__/\_, /\___/_//_/\_,_/_/         It is licensed under LICENSE_FULL_NAME
-#         /___/                           Please report bugs and contribute back your improvements
+#  This script is provided to you by https://github.com/tegonal-bot-org/tegonal-bot
+#  Copyright 2024 Tegonal Bot <github-bot@tegonal.com>
+#  It is licensed under Apache License, Version 2.0
+#  Please report bugs and contribute back your improvements
 #
 #                                         Version: v0.1.0-SNAPSHOT
 ###################################
@@ -36,7 +35,7 @@ function customRunShellcheck() {
 
 	# shellcheck disable=SC2034   # is passed by name to runShellcheck
 	local -ra dirs2=("$gt_remote_dir")
-	runShellcheck dirs2 "$sourcePath" -name "pull-hook_*.sh"
+	runShellcheck dirs2 "$sourcePath" -name "pull-hook.sh"
 }
 
 ${__SOURCED__:+return}

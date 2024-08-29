@@ -17,7 +17,7 @@ jobs:
   determine_remotes:
     name: Determine Remotes
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'tegonal'
+    if: github.repository_owner == 'tegonal-bot-org'
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
