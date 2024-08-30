@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #
-#  This script is provided to you by https://github.com/tegonal-bot-org/tegonal-bot
-#  Copyright 2024 Tegonal Bot <github-bot@tegonal.com>
-#  It is licensed under Apache License, Version 2.0
-#  Please report bugs and contribute back your improvements
+#    __                          __
+#   / /____ ___ ____  ___  ___ _/ /       This script is provided to you by https://github.com/tegonal-bot-org/tegonal-bot
+#  / __/ -_) _ `/ _ \/ _ \/ _ `/ /        Copyright 2024 Tegonal Genossenschaft <info@tegonal.com>
+#  \__/\__/\_, /\___/_//_/\_,_/_/         It is licensed under Apache License, Version 2.0
+#         /___/                           Please report bugs and contribute back your improvements
 #
 #                                         Version: v0.1.0-SNAPSHOT
 ###################################

@@ -11,7 +11,7 @@ Following a few guidelines so that others can quickly benefit from your contribu
 ## Code of Conduct
 This project and everyone participating in it is governed by this project's 
 [Code of Conduct](https://github.com/tegonal-bot-org/tegonal-bot/tree/main/.github/CODE_OF_CONDUCT.md). 
-By participating, you are expected to uphold this code. Please report unacceptable behaviour to github-bot@tegonal.com
+By participating, you are expected to uphold this code. Please report unacceptable behaviour to info@tegonal.com
 
 ## How to Contribute
 - Star tegonal-bot if you like it.
