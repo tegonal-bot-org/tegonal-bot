@@ -23,14 +23,23 @@ if ! [[ -v projectDir ]]; then
 fi
 
 if ! [[ -v dir_of_tegonal_scripts ]]; then
-	dir_of_tegonal_scripts="$scriptsDir/../lib/tegonal-scripts/src"
+	dir_of_tegonal_scripts="$projectDir/lib/tegonal-scripts/src"
 	source "$dir_of_tegonal_scripts/setup.sh" "$dir_of_tegonal_scripts"
 fi
 
 sourceOnce "$dir_of_tegonal_scripts/utility/log.sh"
+sourceOnce "$projectDir/lib/gt/src/install/include-install-doc.sh"
 
 function cleanupOnPushToMain() {
-	logSuccess "nothing to cleanup yet"
+	# shellcheck disable=SC2034   # is passed by name to copyInstallSh
+	local -ra includeInstallSh=(
+		"$projectDir/.github/workflows/gt-update-in-repos.yml" '          '
+	)
+	includeInstallDoc "$projectDir/lib/gt/install.doc.sh" includeInstallSh || die "could not include install.doc.sh"
+	echo "included install.doc.sh"
+
+
+	logSuccess "Cleanup on push to main completed"
 }
 
 ${__SOURCED__:+return}

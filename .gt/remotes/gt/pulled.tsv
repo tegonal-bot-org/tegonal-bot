@@ -1,3 +1,5 @@
 #@ Version: 1.0.0
 tag	file	relativeTarget	sha512
 v0.18.0	.github/workflows/gt-update.yml	../.github/workflows/gt-update.yml	06babbd120fc0300aaebc1146a650f7c88dda2c25f8ce681f561b51293ed4a2620d58bddf7376c11490a029e8498d4e86323938b070cf29f6fa4a0d0e7e81bd8
+v0.18.0	install.doc.sh	../lib/gt/install.doc.sh	f701d7e14e8524f076b5d1c683b9b570ef06ef5911d53b978311a388ae7ed0da656e5c3f5be10523ece16c373238acea643c48987b4c902bcbf7d85e1669c7dc
+v0.18.0	src/install/include-install-doc.sh	../lib/gt/src/install/include-install-doc.sh	2a44dfc72366598a4ed852fb4ac7884d3f30397e003282d70f8e4dbec58885c3e274798922e58212c71ab83663a0760e7dd9df0827f891efc3e1f86a5dd4cb92
