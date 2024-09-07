@@ -23,7 +23,7 @@ sourceOnce "$dir_of_tegonal_scripts/utility/io.sh"
 
 function githubApiGet() {
 	if ! (($# == 2)); then
-		logError "Exactly two arguments needs to be passed to getMatrix, given \033[0;36m%s\033[0m\n" "$#"
+		logError "Exactly two arguments need to be passed to githubApiGet, given \033[0;36m%s\033[0m\n" "$#"
 		echo >&2 '1: url      github api endpoint'
 		echo >&2 '2: secret   github api token'
 		printStackTrace
@@ -50,7 +50,7 @@ function githubApiGet() {
 
 function getUpstream() {
 	if ! (($# == 2)); then
-		logError "Exactly two arguments need to be passed to getUpstreamRepo, given \033[0;36m%s\033[0m\n" "$#"
+		logError "Exactly two arguments need to be passed to getUpstream, given \033[0;36m%s\033[0m\n" "$#"
 		echo >&2 '1: repository   name of the repository including the prefixed owner, for instance tegonal-bot/scripts'
 		echo >&2 '2: secret       github api token'
 		printStackTrace
@@ -72,7 +72,7 @@ function getUpstream() {
 
 function getRepos() {
 	if ! (($# == 1)); then
-		logError "Exactly one argument needs to be passed to getUpstreamRepo, given \033[0;36m%s\033[0m\n" "$#"
+		logError "Exactly one argument needs to be passed to getRepos, given \033[0;36m%s\033[0m\n" "$#"
 		echo >&2 '1: secret   github api token'
 		printStackTrace
 		exit 9
@@ -90,7 +90,7 @@ function getRepos() {
 
 function getRepoMatrix() {
 	if ! (($# == 1)); then
-		logError "Exactly one argument needs to be passed to getMatrix, given \033[0;36m%s\033[0m\n" "$#"
+		logError "Exactly one argument needs to be passed to getRepoMatrix, given \033[0;36m%s\033[0m\n" "$#"
 		echo >&2 '1: secret   github api token'
 		printStackTrace
 		exit 9

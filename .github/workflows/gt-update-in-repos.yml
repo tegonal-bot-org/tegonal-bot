@@ -83,13 +83,14 @@ jobs:
       - id: set-matrix
         name: set matrix
         run: |
-          (
-            readarray -t REMOTES; IFS=','
-            echo "repo_${{ matrix.nr }}=[ ${REMOTES[*]} ]" >> "$GITHUB_OUTPUT"
-          ) < <(
-            gt remote list | \
-              sed -E 's@(.*)@{ "remote": "\1", "repository": "${{ matrix.repository }}", "upstream": "${{ matrix.upstream }}" }@'
-          )
+            remotes="$(
+              (
+                gt remote list |
+                    sed -E 's@(.*)@{ "remote": "\1", "repository": "${{ matrix.repository }}", "upstream": "${{ matrix.upstream }}" }@'
+              ) | paste -sd ','
+            )"
+            echo "repo_${{ matrix.nr }}=[ $remotes ]"
+            echo "repo_${{ matrix.nr }}=[ $remotes ]" >> "$GITHUB_OUTPUT"
 
   create_update_matrix:
     name: Create Update Matrix
