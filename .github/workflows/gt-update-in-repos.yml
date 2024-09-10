@@ -156,9 +156,26 @@ jobs:
         run: |
           gt update -r "${{ matrix.remote }}" && gt update -r "${{ matrix.remote }}"
           echo "remote_version=$(git --git-dir='.gt/remotes/${{ matrix.remote }}/repo/.git' tag | sort --version-sort | tail -n 1)" >> $GITHUB_OUTPUT
-      - name: git status
-        run: git status
+      - id: has_changes
+        name: git status
+        run: |
+            git status
+            gitStatus=$(git status --porcelain)
+            (if [[ $gitStatus != "" ]]; then echo "has_changes=1"; else echo "has_changes=0"; fi) >> $GITHUB_OUTPUT
+      - name: git commit
+        if: ${{ steps.has_changes.outputs.has_changes == 1 }}
+        run: |
+            git config --local user.name 'tegonal-bot'
+            git config --local user.email 'tegonal-bot@users.noreply.github.com'
+            git commit -am 'update files of remote ${{ matrix.remote }} to version ${{steps.gt_update.outputs.remote_version}} via gt' || true
+      - name: cleanup-on-push-to-main
+        if: ${{ steps.has_changes.outputs.has_changes == 1 }}
+        run: |
+            (./scripts/cleanup-on-push-to-main.sh &&
+                git commit -am 'cleanup after gt pull for remote ${{ matrix.remote }} and version ${{steps.gt_update.outputs.remote_version}}'
+            ) || (printf >&2 "\033[0;31mERROR\033[0m: during cleanup, going to reset changes back to the status after \`gt update\`' && git reset --hard)
       - name: Create pull request if necessary
+        if: ${{ steps.has_changes.outputs.has_changes == 1 }}
         uses: peter-evans/create-pull-request@v6
         with:
           branch: 'gt/update/${{ matrix.remote }}'
