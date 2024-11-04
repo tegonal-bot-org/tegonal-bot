@@ -6,7 +6,7 @@
 #  \__/\__/\_, /\___/_//_/\_,_/_/         It is licensed under European Union Public License v. 1.2
 #         /___/                           Please report bugs and contribute back your improvements
 #
-#                                         Version: v0.19.0
+#                                         Version: v1.0.2
 #######  Description  #############
 #
 #  utility to include the content of install.doc.sh into given files (e.g. into other scripts or github workflow files
@@ -40,7 +40,7 @@
 set -euo pipefail
 shopt -s inherit_errexit
 unset CDPATH
-export GT_VERSION='v0.19.0'
+export GT_VERSION='v1.0.2'
 
 if ! [[ -v dir_of_gt ]]; then
 	dir_of_gt="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)/.."
@@ -67,7 +67,7 @@ function includeInstallDoc() {
 	# using unconventional naming in order to avoid name clashes with the variables we will initialise further below
 	local -r installDocSh=$1
 	local -rn includeInstallDoc_files=$2
-	shift 2 || die "could not shift by 2"
+	shift 2 || traceAndDie "could not shift by 2"
 
 	if ! [[ -f "$installDocSh" ]]; then
 		returnDying "%s does not exist" "$installDocSh"
@@ -98,7 +98,7 @@ function includeInstallDoc() {
 		perl -0777 -i \
 			-pe "s@(\n\s+# see install.doc.sh.*\n)[^#]+(# end install.doc.sh\n)@\${1}$content\n$indent\${2}@g" \
 			"$file" || return $?
-	done || die "could not replace the install instructions"
+	done || traceAndDie "could not replace the install instructions"
 }
 
 ${__SOURCED__:+return}
