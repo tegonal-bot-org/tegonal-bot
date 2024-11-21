@@ -87,7 +87,7 @@ jobs:
             remotes="$(
               (
                 gt remote list |
-                    sed -E 's@(.*)@{ "remote": "\1", "repository": "${{ matrix.repository }}", "upstream": "${{ matrix.upstream }}" }@'
+                    sed -E 's@(.*)@{ "remote": "\1", "repository": "${{ matrix.repository }}", "repoName": "${{matrix.repoName}}", "upstream": "${{ matrix.upstream }}" }@'
               ) | paste -sd ','
             )"
             echo "repo_${{ matrix.nr }}=[ $remotes ]"
