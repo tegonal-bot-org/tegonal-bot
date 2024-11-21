@@ -114,7 +114,7 @@ function getRepoMatrix() {
 		if ((i > 19)); then
 			die "there are more than 19 repos, please adjust the outputs of determine_remotes";
 		fi
-		printf '{ "repository": "%s", "upstream": "%s", "nr": "%s" }' "$repo" "$upstream" "$i"
+		printf '{ "repository": "%s", "repoName": "%s", "upstream": "%s", "nr": "%s" }' "$repo" "${repo#tegonal-bot/}" "$upstream" "$i"
 	done <<<"$repos" 3<<<"$upstreams"
 	printf "]}"
 }

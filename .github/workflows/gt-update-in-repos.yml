@@ -24,7 +24,7 @@ jobs:
         run: ./scripts/get-repo-matrix.sh "${{ secrets.GITHUB_TOKEN }}" >> "$GITHUB_OUTPUT"
 
   determine_remotes:
-    name: remotes ${{ matrix.repository }}
+    name: remotes ${{ matrix.repoName }}
     needs: determine_repos
     runs-on: ubuntu-latest
     strategy:
@@ -40,6 +40,7 @@ jobs:
       repo_7: ${{ steps.set-matrix.outputs.repo_7 }}
       repo_8: ${{ steps.set-matrix.outputs.repo_8 }}
       repo_9: ${{ steps.set-matrix.outputs.repo_9 }}
+      repo_10: ${{ steps.set-matrix.outputs.repo_10 }}
       repo_11: ${{ steps.set-matrix.outputs.repo_11 }}
       repo_12: ${{ steps.set-matrix.outputs.repo_12 }}
       repo_13: ${{ steps.set-matrix.outputs.repo_13 }}
