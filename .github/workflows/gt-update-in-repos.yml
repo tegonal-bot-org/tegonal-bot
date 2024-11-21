@@ -113,7 +113,7 @@ jobs:
 
   update:
     needs: create_update_matrix
-    name: 'Up ${{ matrix.remote }} of ${{ matrix.repository }}'
+    name: 'Up ${{ matrix.remote }} of ${{ matrix.repoName }}'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
