@@ -1,5 +1,5 @@
 #@ Version: 1.1.0
 tag	file	relativeTarget	tagFilter	sha512
-v1.4.2	.github/workflows/gt-update.yml	../.github/workflows/gt-update.yml	.*	37e153b5cc42751286ba57bb299b70091a3e5eaac82133a782fc07bbf4d2a3c3af193d56242e71cf807700971472b3be74b0bbd4d1884890eab841af1f467319
-v1.4.2	install.doc.sh	../lib/gt/install.doc.sh	.*	32e669a692ba697ecab03d35eae6988c7011a34c111a65c6951b9b0376f8763a3f468e34f886a9963756e0711a38508a3f0dd40d391f02e52c59b82543a4e308
-v1.4.2	src/install/include-install-doc.sh	../lib/gt/src/install/include-install-doc.sh	.*	507b78f8bcd47f0ec012177554487431ff841c7036ce9549485f510790a7c79c43538f41980718d5bcdcd7b77726307ebc71b76a9d7edcd9fcd6c14bedb1da48
+v1.4.3	.github/workflows/gt-update.yml	../.github/workflows/gt-update.yml	.*	2293df42955618649e2a8ae349bd0c0c08fc217090c59f50f23e57cad7ad4473bd5a7d0bc9a888a3785a3c1752e7b49882f4861e8b6996a1422429bebb48af6c
+v1.4.3	install.doc.sh	../lib/gt/install.doc.sh	.*	92a365cea1ea643bce2a7eba5dbd6a458d91eb2e87232f8084a95bb4b8e92b5b1232b7aea1a711d51f4800dfb96a58cb7254ff9461d78c591f6266adf07a42d6
+v1.4.3	src/install/include-install-doc.sh	../lib/gt/src/install/include-install-doc.sh	.*	3cdee9ea66c9939dc8e94f804c53eca4db0183e60ff9ae2c96c31a226d241da3e20e0fd4b9fa028c56c59d00eebf52038bab11576d9e46f920037fd7ee1ec8ba
