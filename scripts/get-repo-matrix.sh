@@ -41,7 +41,7 @@ function githubApiGet() {
 		--header "Accept: application/vnd.github+json" \
 		--header "X-GitHub-Api-Version: 2022-11-28" \
 		--header "authorization: Bearer $secret") || die "unknown error: could not get %s" "$url"
-	if ! [[ $status == "200" ]]; then
+	if [[ $status != "200" ]]; then
 		# shellcheck disable=SC2312		# we suppress fail of cat on purpose
 		returnDying "server error, could not get %s\nserver responded with status: %s\nand message:\n%s" "$url" "$status" "$(cat "$response")}"
 	fi
