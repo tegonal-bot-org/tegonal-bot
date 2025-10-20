@@ -6,7 +6,7 @@
 #  \__/\__/\_, /\___/_//_/\_,_/_/         It is licensed under European Union Public License v. 1.2
 #         /___/                           Please report bugs and contribute back your improvements
 #
-#                                         Version: v1.4.3
+#                                         Version: v1.4.4
 #######  Description  #############
 #
 #  utility to include the content of install.doc.sh into given files (e.g. into other scripts or github workflow files
@@ -19,28 +19,28 @@
 #    shopt -s inherit_errexit || { echo >&2 "please update to bash 5, see errors above" && exit 1; }
 #
 #    if ! [[ -v dir_of_gt ]]; then
-#    	# Assumes copy-install-doc.sh was fetched with gt - adjust location accordingly
+#    	# Assumes include-install-doc.sh was fetched with gt - adjust location accordingly
 #    	dir_of_gt="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)/../lib/gt/src"
 #    fi
-#    sourceOnce "$dir_of_gt/install/copy-install-doc.sh"
+#    sourceOnce "$dir_of_gt/install/include-install-doc.sh"
 #
 #    # e.g. could be used in cleanup-on-push-to-main.sh
 #
 #    function cleanupOnPushToMain() {
 #    	# shellcheck disable=SC2034   # is passed by name to copyInstallDoc
-#    	local -ar includeInstallDoc=(
+#    	local -ar includeInstallDocInFiles=(
 #    	  # file_name indent
-#    		"$projectDir/.github/workflows/gt-update.yml" '          '
-#      	"$projectDir/src/gitlab/install-gt.sh" ''
+#    		".github/workflows/gt-update.yml" '          '
+#      	"src/gitlab/install-gt.sh" ''
 #    	)
-#    	copyInstallDoc "$dir_of_gt/../install.doc.sh" includeInstallDoc
+#    	includeInstallDoc "$dir_of_gt/../install.doc.sh" includeInstallDocInFiles
 #    }
 #
 ###################################
 set -euo pipefail
 shopt -s inherit_errexit || { echo >&2 "please update to bash 5, see errors above" && exit 1; }
 unset CDPATH
-export GT_VERSION='v1.4.3'
+export GT_VERSION='v1.4.4'
 
 if ! [[ -v dir_of_gt ]]; then
 	dir_of_gt="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)/.."
