@@ -62,8 +62,6 @@ jobs:
         run: |
           set -e
           # see install.doc.sh in https://github.com/tegonal/gt, MODIFY THERE NOT HERE (please report bugs)
-
-
           currentDir=$(pwd) && \
           tmpDir=$(mktemp -d -t gt-download-install-XXXXXXXXXX) && cd "$tmpDir" && \
           wget "https://raw.githubusercontent.com/tegonal/gt/main/.gt/signing-key.public.asc" && \
