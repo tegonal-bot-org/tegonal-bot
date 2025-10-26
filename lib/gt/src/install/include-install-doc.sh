@@ -6,7 +6,7 @@
 #  \__/\__/\_, /\___/_//_/\_,_/_/         It is licensed under European Union Public License v. 1.2
 #         /___/                           Please report bugs and contribute back your improvements
 #
-#                                         Version: v1.4.4
+#                                         Version: v1.5.2
 #######  Description  #############
 #
 #  utility to include the content of install.doc.sh into given files (e.g. into other scripts or github workflow files
@@ -29,9 +29,9 @@
 #    function cleanupOnPushToMain() {
 #    	# shellcheck disable=SC2034   # is passed by name to copyInstallDoc
 #    	local -ar includeInstallDocInFiles=(
-#    	  # file_name indent
+#    		# file_name indent
 #    		".github/workflows/gt-update.yml" '          '
-#      	"src/gitlab/install-gt.sh" ''
+#    		"src/gitlab/install-gt.sh" ''
 #    	)
 #    	includeInstallDoc "$dir_of_gt/../install.doc.sh" includeInstallDocInFiles
 #    }
@@ -40,7 +40,7 @@
 set -euo pipefail
 shopt -s inherit_errexit || { echo >&2 "please update to bash 5, see errors above" && exit 1; }
 unset CDPATH
-export GT_VERSION='v1.4.4'
+export GT_VERSION='v1.5.2'
 
 if ! [[ -v dir_of_gt ]]; then
 	dir_of_gt="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)/.."
@@ -81,7 +81,7 @@ function includeInstallDoc() {
 	exitIfArgIsNotArrayWithTuples includeInstallDoc_files 2 "files" 2 describePair
 
 	local installScript
-	installScript=$(perl -0777 -pe 's/(@|\$|\\)/\\$1/g;' <"$installDocSh")
+	installScript=$(perl -0777 -pe 's/(@|\$|\\)/\\$1/g;' <"$installDocSh" | tail -n +2)
 
 	local -r arrLength="${#includeInstallDoc_files[@]}"
 	local -i i
