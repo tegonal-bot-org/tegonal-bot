@@ -17,6 +17,7 @@ if ! [[ -v scriptsDir ]]; then
 	readonly scriptsDir
 fi
 source "$scriptsDir/dirs.source.sh"
+sourceOnce "$scriptsDir/run-shfmt.sh"
 sourceOnce "$dir_of_tegonal_scripts/utility/log.sh"
 sourceOnce "$projectDir/lib/gt/src/install/include-install-doc.sh"
 
@@ -28,6 +29,7 @@ function cleanupOnPushToMain() {
 	includeInstallDoc "$projectDir/lib/gt/install.doc.sh" includeInstallSh || die "could not include install.doc.sh"
 	echo "included install.doc.sh"
 
+	customRunShfmt || die "was not able to format"
 
 	logSuccess "Cleanup on push to main completed"
 }

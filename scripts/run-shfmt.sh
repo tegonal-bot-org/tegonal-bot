@@ -9,24 +9,23 @@
 #                                         Version: v0.1.0-SNAPSHOT
 ###################################
 set -euo pipefail
-shopt -s inherit_errexit
+shopt -s inherit_errexit || { echo >&2 "please update to bash 5, see errors above" && exit 1; }
 unset CDPATH
 
 if ! [[ -v scriptsDir ]]; then
-	scriptsDir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)/../../../scripts"
+	scriptsDir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)"
 	readonly scriptsDir
 fi
 source "$scriptsDir/dirs.source.sh"
+sourceOnce "$dir_of_tegonal_scripts/qa/run-shfmt.sh"
 
-function gt_pullHook_gt_before() {
-	local -r _tag=$1 source=$2 _target=$3
+function customRunShfmt() {
+	# shellcheck disable=SC2034   # is passed by name to runShfmt
+	local -ra dirs=("$scriptsDir")
+	runShfmt dirs || return $?
 
-	if [[ $source =~ .*/.github/workflows/gt-update.yml ]]; then
-		perl -0777 -i -pe "s/(if: github.repository_owner == )'tegonal'/\${1}'tegonal-bot-org'/" "$source"
-	fi
+	runShfmtPullHooks "$scriptsDir/../.gt"
 }
 
-function gt_pullHook_gt_after() {
-	# no op, nothing to do
-	true
-}
+${__SOURCED__:+return}
+customRunShfmt "$@"
