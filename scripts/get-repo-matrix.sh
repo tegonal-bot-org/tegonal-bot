@@ -80,8 +80,9 @@ function getRepos() {
 	local response repos
 	response=$(githubApiGet "https://api.github.com/users/tegonal-bot/repos" "$secret")
 	repos=$(
-		echo "$response" | grep '"full_name"' | sed -r 's@\s*"full_name"\s*:\s*"([^"]+)",@\1@'
-	) || die "looks like no repo in response:\n%s" "response"
+		echo "$response" |
+			jq -r '.[] | select(.archived == false) | .full_name'
+	) || die "looks like no repo in response or all archived:\n%s" "response"
 	echo "$repos"
 }
 
