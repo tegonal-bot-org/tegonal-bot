@@ -87,7 +87,7 @@ jobs:
           		exit 1
           	} && false || cd "$currentDir" && rm -r "$tmpDir" && "${result:-false}"
           # end install.doc.sh
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           repository: '${{ matrix.upstream }}'
       - id: set-matrix
@@ -109,7 +109,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: set-matrix
         name: Create matrix
         run: |
@@ -162,7 +162,7 @@ jobs:
           		exit 1
           	} && false || cd "$currentDir" && rm -r "$tmpDir" && "${result:-false}"
           # end install.doc.sh
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           repository: '${{ matrix.upstream }}'
       - name: reset gpg keys
