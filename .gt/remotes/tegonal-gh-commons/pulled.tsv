@@ -7,3 +7,4 @@ v6.0.0	src/.github/workflows/cleanup.yml	../.github/workflows/cleanup.yml	.*	tru
 v6.0.0	src/dotfiles/.editorconfig	../.editorconfig	.*	false	02b4350157c9c1e77e2bf7c2fea770d6df74f3689f89a4cac56b0540270a89818eaa1b4a6bdd256afea231132e34e0a7e3d7b9e48b3d029657074267ff6f38cc
 v6.0.0	src/dotfiles/.shellcheckrc	../.shellcheckrc	.*	false	f6474b940295ef3ad29d725c2d3e9ab7f528a89db2399088c4f98c5211e71c873b96f9d8412f45e5d7ba750b11d2ab98554199270206e72468af0e7b642e0f38
 v6.0.0	src/gt/pull-hook-functions.sh	../lib/tegonal-gh-commons/src/gt/pull-hook-functions.sh	.*	false	7201cf384db87a871b5124c9d2cb8aaf9ef5e5038fadb8e419b6196f5c57bc3fb892e2b26a9fe4b970a83e88103a8b658e1f7d1a2695547fd074429ee81be395
+v6.0.0	src/.github/dependabot.yml	../.github/dependabot.yml	.*	true	a196fbcd844dcf51ea9445fa03e1280ecc65fc121b2531c188384f3cb08caae3808d45648ded3fd6f29674d9f669fcbd28bdf746f6b4aa0efd1cdb3f1a9624a9

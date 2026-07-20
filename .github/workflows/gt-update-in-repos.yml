@@ -11,6 +11,9 @@ name: "gt update in repos"
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   determine_repos:
     name: Determine Repositories
@@ -19,7 +22,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: set-matrix
         run: ./scripts/get-repo-matrix.sh "${{ secrets.GITHUB_TOKEN }}" >> "$GITHUB_OUTPUT"
 
