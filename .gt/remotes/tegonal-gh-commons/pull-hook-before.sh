@@ -11,22 +11,23 @@
 set -euo pipefail
 shopt -s inherit_errexit
 unset CDPATH
+TEGONAL_BOT_LATEST_VERSION="main"
 
 if ! [[ -v scriptsDir ]]; then
 	scriptsDir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)/../../../scripts"
 	readonly scriptsDir
 fi
 source "$scriptsDir/dirs.source.sh"
+sourceOnce "$dir_of_github_commons/gt/pull-hook-functions.sh"
+sourceOnce "$dir_of_tegonal_scripts/utility/parse-fn-args.sh"
 
-function gt_pullHook_gt_before() {
-	local -r _tag=$1 source=$2 _target=$3
+function pull_hook_before() {
+	local _currentTag _tag source _target
+	# shellcheck disable=SC2034   # is passed by name to parseFnArgs
+	local -ra params=(_currentTag _tag source _target)
+	parseFnArgs params "$@"
 
-	if [[ $source =~ .*/.github/workflows/gt-update.yml ]]; then
-		perl -0777 -i -pe "s/(if: github.repository_owner == )'tegonal'/\${1}'tegonal-bot-org'/" "$source"
-	fi
+	replaceTegonalGhCommonsPlaceholders "$source" "tegonal-bot" "$TEGONAL_BOT_LATEST_VERSION" \
+		"Tegonal Genossenschaft" "info@tegonal.com" "tegonal-bot-org" "tegonal-bot"
 }
-
-function gt_pullHook_gt_after() {
-	# no op, nothing to do
-	true
-}
+pull_hook_before "$@"
