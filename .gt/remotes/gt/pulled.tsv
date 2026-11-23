@@ -1,5 +1,5 @@
 #@ Version: 1.4.0
 tag	file	relativeTarget	tagFilter	hasPlaceholder	excludeFilesMatching	sha512
-v3.0.2	.github/workflows/gt-update.yml	../.github/workflows/gt-update.yml	.*	true	^$	176b38fa9497545726605b928b885957eb7490b5fd2f4a1348479c95151cb3b11784ddfd1f80131aa53b6443adc21e92a7769924a1ca950d2ec65a705a422711
-v3.0.2	install.doc.sh	../lib/gt/install.doc.sh	.*	false	^$	c8572f79c1af3ec2807c9c4f366b759584777aeacd9d21ea6ad382a1399befdce6c1b242c4171e29266abd907e4963b065e763abcbdd0a000aa741b7822ed10d
-v3.0.2	src/install/include-install-doc.sh	../lib/gt/src/install/include-install-doc.sh	.*	false	^$	a194d37321f8579c598e75dec1bbef26a6b5d88e0f3c0cc8d75df5794489e4376e991970b4028e6e9aa35e9e7489fa19c68afeac5efabc5d9c2398d69bc9ca26
+v3.1.0	.github/workflows/gt-update.yml	../.github/workflows/gt-update.yml	.*	true	^$	2c283d74a3d3975756496cc219ebd019d1bfaf8c927f0a94cf803e0804ce849b821a6daa4ba4826e27409e5776772c578310099f0536bacfae0163f6caecea3b
+v3.1.0	install.doc.sh	../lib/gt/install.doc.sh	.*	false	^$	69a08683b04dfe809e695335190dd22b3f939b3946a314d9c29848770f6e402121d591b1d1c4d146af57540e02e9387a679c684bedd3f8770075891a6f03628d
+v3.1.0	src/install/include-install-doc.sh	../lib/gt/src/install/include-install-doc.sh	.*	false	^$	aeaee3b6be3445a37bdb429b185c2f03c0fbcedd2ea833f94be33ef5e2d5bb5822bbf1855aed444863101bf3cdc054f7dede21b75b1945e1a640141bf4491d99
